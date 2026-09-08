@@ -2,12 +2,12 @@ import { ColorTree } from "lib/generateColorConfig";
 
 export const colors = {
   blue: {
-    100: { light: "#A4C3F9", dark: "#A4C3F9" },
-    300: { light: "#7885FF", dark: "#7885FF" },
-    400: { light: "#2D42FC", dark: "#2D42FC" },
-    500: { light: "#3d51ff", dark: "#3d51ff" },
-    600: { light: "#2d42fc", dark: "#2d42fc" },
-    700: { light: "#2e3dcd", dark: "#2e3dcd" },
+    100: { light: "#FFE48A", dark: "#A4C3F9" },
+    300: { light: "#FFD75A", dark: "#7885FF" },
+    400: { light: "#FFCA2C", dark: "#2D42FC" },
+    500: { light: "#F2B900", dark: "#F2B900" },
+    600: { light: "#E5AD00", dark: "#E5AD00" },
+    700: { light: "#B98500", dark: "#B98500" },
   },
   "cold-blue": {
     500: { light: "#3a3f79", dark: "#3a3f79" },
@@ -66,8 +66,8 @@ export const colors = {
     secondary: { light: "#E0E0E8", dark: "#23263b" },
     secondaryHover: { light: "#dadce8", dark: "#282d46" },
     secondaryDisabled: { light: "#E0E0E8", dark: "#1e2033" },
-    primaryHover: { light: "#293ce4", dark: "#2a3de5" },
-    primaryActive: { light: "#2637ce", dark: "#2536cd" },
+    primaryHover: { light: "#FFD75A", dark: "#FFD75A" },
+    primaryActive: { light: "#E5AD00", dark: "#E5AD00" },
   },
   fill: {
     surfaceElevated50: { light: "#EDEDF280", dark: "#1E203380" },
