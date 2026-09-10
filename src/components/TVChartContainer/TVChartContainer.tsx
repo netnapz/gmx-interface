@@ -896,17 +896,22 @@ export default function TVChartContainer({
       if (!iframe || !iframe.contentWindow) {
         return;
       }
-      const iframeWindow = iframe.contentWindow;
-      const iframeDocument = iframeWindow.document;
+      try {
+        const iframeWindow = iframe.contentWindow;
+        const iframeDocument = iframeWindow.document;
 
-      if (iframeDocument.readyState !== "complete") {
-        iframeDocument.addEventListener("readystatechange", () => {
-          if (iframeDocument.readyState === "complete") {
-            iframeWindow.dispatchEvent(new Event("innerWindowLoad"));
-          }
-        });
-      } else {
-        iframeWindow.dispatchEvent(new Event("innerWindowLoad"));
+        if (iframeDocument.readyState !== "complete") {
+          iframeDocument.addEventListener("readystatechange", () => {
+            if (iframeDocument.readyState === "complete") {
+              iframeWindow.dispatchEvent(new Event("innerWindowLoad"));
+            }
+          });
+        } else {
+          iframeWindow.dispatchEvent(new Event("innerWindowLoad"));
+        }
+      } catch {
+        // The hosted chart iframe may be isolated by the browser. In that case,
+        // let TradingView complete its normal initialization without forced access.
       }
     }, 800);
 
