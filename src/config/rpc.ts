@@ -95,7 +95,6 @@ const RPC_CONFIGS: Record<number, RpcConfig[]> = {
     getAlchemyProvider(ARBITRUM, "fallback"),
     ...(ENV_ARBITRUM_RPC_URLS ?? []).map((url: string) => ({
       url,
-     Y
       isPublic: false,
       purpose: "fallback",
     })),
