@@ -90,13 +90,15 @@ const RPC_CONFIGS: Record<number, RpcConfig[]> = {
     })),
 
     // Fallback
-    ...(ENV_ARBITRUM_RPC_URLS
-      ? ENV_ARBITRUM_RPC_URLS.map((url: string) => ({
-          url,
-          isPublic: false,
-          purpose: "fallback",
-        }))
-      : [getAlchemyProvider(ARBITRUM, "fallback")]),
+    // Always retain GMX's known-good Alchemy fallback. Custom Vercel RPC
+    // endpoints are additive so a temporary provider outage cannot stall the app.
+    getAlchemyProvider(ARBITRUM, "fallback"),
+    ...(ENV_ARBITRUM_RPC_URLS ?? []).map((url: string) => ({
+      url,
+     Y
+      isPublic: false,
+      purpose: "fallback",
+    })),
 
     // Large account
     getAlchemyProvider(ARBITRUM, "largeAccount"),
